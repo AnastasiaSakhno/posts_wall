@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20170114061508) do
 
   create_table "posts", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "message"
+    t.text     "message"
     t.string   "title"
     t.integer  "category_id"
     t.integer  "likes"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20170114061508) do
   create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "encrypted_password"
+    t.string   "salt"
     t.string   "type"
     t.boolean  "admin"
     t.string   "first_name"

@@ -1,4 +1,4 @@
-RSpec.describe Post, type: :model do
+describe Post, type: :model do
   context 'must have associations' do
     it { should belong_to(:user) }
     it { should belong_to(:category) }

@@ -1,4 +1,4 @@
-RSpec.describe Category, type: :model do
+describe Category, type: :model do
   context 'must have associations' do
     it { should have_many(:posts) }
   end

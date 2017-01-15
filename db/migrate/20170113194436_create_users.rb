@@ -3,6 +3,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
     create_table :users do |t|
       t.string :email
       t.string :encrypted_password
+      t.string :salt
       t.string :type
       t.boolean :admin
       t.string :first_name
