@@ -1,9 +1,11 @@
 = form_for user, method: :post do |f|
   Email:
-  = f.text_field :email, ''
+  = f.text_field :email
   %br
-  Password:
-  = f.password_field :password, ''
-  Password Confirmation:
-  = f.password_field :password_confirmation
-  = f.submit "Submit"
+  First name:
+  = f.text_field :first_name, require: false
+  %br
+  Last name:
+  = f.text_field :last_name, require: false
+  %br
+  = f.submit "Sign up"

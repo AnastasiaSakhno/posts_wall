@@ -1,4 +1,5 @@
 describe User, type: :model do
+
   context 'must have associations' do
     it { should have_many(:posts) }
   end
@@ -17,4 +18,5 @@ describe User, type: :model do
       expect(user.encrypted_password).to_not eq('123456')
     end
   end
+
 end

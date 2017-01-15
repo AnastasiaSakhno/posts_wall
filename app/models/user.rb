@@ -4,6 +4,7 @@ class User < ApplicationRecord
 
   has_many :posts
   validates_presence_of :email, :encrypted_password, :salt
+  before_validation -> (user) { user.password = SecureRandom.hex }
 
   attr_accessor :password_confirmation
 
