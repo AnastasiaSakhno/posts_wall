@@ -4,7 +4,7 @@ class User < ApplicationRecord
 
   has_many :posts
   validates_presence_of :email, :encrypted_password, :salt
-  before_validation -> (user) { user.password = SecureRandom.hex }
+  before_validation -> (user) { user.password = SecureRandom.hex(8) }
 
   attr_accessor :password_confirmation
 
@@ -13,7 +13,11 @@ class User < ApplicationRecord
   end
 
   def password=(new_password)
-    self.salt = SecureRandom.hex
+    self.salt = SecureRandom.hex(8)
     self.encrypted_password = Password.create(salt + new_password)
+  end
+
+  def full_name
+    "#{first_name} #{last_name}"
   end
 end

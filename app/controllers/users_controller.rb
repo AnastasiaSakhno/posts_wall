@@ -6,8 +6,12 @@ class UsersController < ApplicationController
   end
 
   def create
-    user.update_attributes(user_params)
-    redirect_to user_profile_path
+    if user.update_attributes(user_params)
+      UserMailer.welcome_email(user, request.original_url).deliver_later
+      redirect_to user_profile_path
+    else
+      render 'sign_up'
+    end
   end
 
   private
