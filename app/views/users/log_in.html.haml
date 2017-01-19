@@ -1,5 +1,5 @@
 %h1 Log in
-= form_for user, url: user_profile_path(user), method: :get do |f|
+= form_for user, url: users_authenticate_path(user), method: :get do |f|
   Email:
   = f.text_field :email
   %br

@@ -9,11 +9,12 @@ class User < ApplicationRecord
   attr_accessor :password_confirmation
 
   def password
-    Password.new(encrypted_password)
+    @password ||= Password.new(encrypted_password)
   end
 
   def password=(new_password)
     self.salt = SecureRandom.hex(8)
+    @password = new_password
     self.encrypted_password = Password.create(salt + new_password)
   end
 

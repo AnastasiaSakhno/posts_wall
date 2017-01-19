@@ -1,7 +1,9 @@
 class UserMailer < ApplicationMailer
-  def welcome_email(user, url)
-    @user = user
-    @url = url
-    mail(to: @user.email, subject: 'Welcome to PostsWall')
+  def welcome_email args
+    @email = args[:email]
+    @password = args[:password]
+    @full_name = args[:full_name]
+    @url = args[:url]
+    mail(to: @email, subject: 'Welcome to PostsWall')
   end
 end
